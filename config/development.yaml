@@ -1,0 +1,2 @@
+db:
+  connection_string: "sqlite://db/development.db"
