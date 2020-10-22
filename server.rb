@@ -8,8 +8,8 @@ DB = Sequel.connect(config["db"]["connection_string"])
 require_relative 'routes/cart.rb'
 
 
-module Skribd
+module Scribd
   class Server < Grape::API
-    mount Skribd::Cart::Routes 
+    mount Scribd::Cart::Routes 
   end
 end 

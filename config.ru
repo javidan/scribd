@@ -12,4 +12,4 @@ use Rack::Cors do
 end
 
 
-run Skribd::Server
+run Scribd::Server

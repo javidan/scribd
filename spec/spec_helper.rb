@@ -10,7 +10,7 @@ Sequel.connect(config["db"]["connection_string"])
 require 'simplecov'
 SimpleCov.start
 
-
+require_relative "../app/cart/include.rb"
 
 
 RSpec.configure do |config|

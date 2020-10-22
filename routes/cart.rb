@@ -1,4 +1,4 @@
-module Skribd
+module Scribd
   module Cart
     class Routes < Grape::API
       format :json
