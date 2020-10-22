@@ -7,6 +7,7 @@ config = YAML.load_file("./config/#{ENV['RACK_ENV'] || "test"}.yaml")
 Sequel.connect(config["db"]["connection_string"])
 
 
+require 'pry'
 require 'simplecov'
 SimpleCov.start
 

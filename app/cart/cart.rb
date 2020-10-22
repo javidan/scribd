@@ -1,4 +1,4 @@
-require 'securerandom'
+
 
 module Scribd
   module Cart
@@ -13,8 +13,8 @@ module Scribd
         @updated_at = nil
       end
 
-      def add_item(product_id:, quantity:)
-      
+      def add_item(product_id:, quantity:, item_id: nil)
+        @items << Item.new(id: item_id, cart_id: id, product_id: product_id, quantity: quantity)
       end
 
       def set_timestamps(created_at:, updated_at:)
