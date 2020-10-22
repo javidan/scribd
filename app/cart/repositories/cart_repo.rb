@@ -28,6 +28,19 @@ module Scribd
         cart
       end
 
+      def find_by_user_id(user_id)
+        record = CartsModel.where(user_id: user_id).first
+        raise Error.new("User dont have any cart") unless record.present?
+
+        cart = Cart.new(
+          id: record.id,
+          user_id: record.user_id,
+        )
+        cart.set_timestamps(created_at: record.created_at, updated_at: record.updated_at)
+
+        cart
+      end
+
     end
   end
 end

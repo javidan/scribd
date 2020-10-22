@@ -2,7 +2,7 @@ Sequel.migration do
   up do
     create_table(:carts) do
       String :id
-      String :user_id
+      Integer :user_id
       DateTime :created_at
       DateTime :updated_at
     end
