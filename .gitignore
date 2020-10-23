@@ -1,2 +1,3 @@
 coverage
 db/*.db
+local-db

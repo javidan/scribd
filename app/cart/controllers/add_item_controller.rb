@@ -12,10 +12,10 @@ module Scribd
         
         repo = CartRepo.new
         cart = repo.find_by_user_id(@user_id)
-        
+
         cart.add_item(product_id: @product_id, quantity: @quantity)
         
-        repo.add_item(@user_id, cart.items.last)
+        repo.save(cart)
 
         cart.to_hash
       end

@@ -14,7 +14,21 @@ module Scribd
       end
 
       def add_item(product_id:, quantity:, item_id: nil)
-        @items << Item.new(id: item_id, cart_id: id, product_id: product_id, quantity: quantity)
+        item = items.find { |item| item.product_id == product_id}
+        
+        if item.present?
+          item.increase_quantity(quantity)
+        else
+          @items << Item.new(id: item_id, cart_id: id, product_id: product_id, quantity: quantity)
+        end
+      end
+
+      def remove_item(product_id)
+        @items = items.filter {|item| item.product_id != product_id}
+      end
+
+      def clear
+        @items = []
       end
 
       def set_timestamps(created_at:, updated_at:)

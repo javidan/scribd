@@ -10,6 +10,10 @@ module Scribd
         @cart_id = cart_id
       end
 
+      def increase_quantity(quantity)
+        @quantity +=quantity
+      end
+      
       def to_hash
         {
           product_id: product_id,
