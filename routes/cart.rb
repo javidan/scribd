@@ -48,17 +48,20 @@ module Scribd
         ## Add item to cart
         desc "It will add item to Cart"
         params do
-          requires :product_id, type: Integer, desc: "Id of product"
-          requires :quantity, type: Integer, desc: "Quantity of user"
+         
           requires :user_id, type: Integer, desc: "Id of user"
+          requires :product, type: Hash, documentation: { param_type: 'body' } do
+            requires :quantity, type: Integer, desc: "Quantity of user"
+            requires :product_id, type: Integer, desc: "Id of product"
+          end
         end
 
         post '/:user_id/items' do
           begin
             Scribd::Cart::AddItemController.new(
               user_id:  params[:user_id],
-              product_id:  params[:product_id],
-              quantity:  params[:quantity]
+              product_id:  params[:product][:product_id],
+              quantity:  params[:product][:quantity]
             ).run!
             
           rescue Scribd::Cart::Error => e
@@ -116,7 +119,7 @@ module Scribd
           end
         end
         ## END
-        
+
       end
     end
   end
