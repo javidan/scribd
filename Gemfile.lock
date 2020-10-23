@@ -100,7 +100,7 @@ DEPENDENCIES
   activesupport
   database_cleaner-sequel
   grape
-  grape-swagger
+  grape-swagger (= 1.3.0)
   pry-byebug
   rack-cors
   rake

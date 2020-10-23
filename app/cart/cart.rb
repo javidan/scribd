@@ -4,7 +4,8 @@ module Scribd
   module Cart
     class Cart
       attr_reader :id, :user_id, :items, :created_at, :updated_at
-
+      attr_writer :id
+      
       def initialize(user_id:, id: nil)
         @user_id = user_id
         @id = id || SecureRandom.uuid

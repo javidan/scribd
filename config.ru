@@ -11,5 +11,4 @@ use Rack::Cors do
   end
 end
 
-
 run Scribd::Server

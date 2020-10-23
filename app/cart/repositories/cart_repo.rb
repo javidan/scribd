@@ -15,11 +15,16 @@ module Scribd
 
       def save(cart)
 
-        # TODO: add transaction
-        record = CartsModel.update_or_create({ user_id: cart.user_id },
-          id: cart.id,
-          user_id: cart.user_id
-        )
+        record = CartsModel.find(user_id: cart.user_id)
+
+        if record.blank?
+          record = CartsModel.create(
+            id: cart.id, 
+            user_id: cart.user_id
+          )
+        else
+          cart.id = record.id
+        end
 
         ItemsModel.where(cart_id: record.id).delete
 
@@ -32,6 +37,8 @@ module Scribd
           )
         end
 
+        cart.set_timestamps(created_at: record.created_at, updated_at: record.updated_at)
+        cart
       end
 
 

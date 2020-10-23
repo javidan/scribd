@@ -10,7 +10,7 @@ module Scribd
         cart = Cart.new(user_id: @user_id)
         repo = CartRepo.new
 
-        repo.save(cart)
+        cart = repo.save(cart)
 
        cart.to_hash
       end

@@ -23,7 +23,7 @@ docker-compose build
 docker-compose up ## app will start on your localhost:9292
 ```
 
-With docker-compose installation you will also get Swagger ui, where you can try API request with Html interface. Swagger UI can be accessed via `http://localhost:8080`
+With docker-compose installation you will also get Swagger-ui, where you can try API request with Html interface. Swagger UI can be accessed via `http://localhost:8080`
 
 # Running tests
 
